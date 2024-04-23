@@ -1,4 +1,8 @@
+#![no_main]
 #![no_std]
-fn main() {
-    println!("Hello, world!");
-}
+
+use core::arch::global_asm;
+
+mod lang_items;
+
+global_asm!(include_str!("entry.asm"));
