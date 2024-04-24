@@ -1,6 +1,6 @@
 #![no_main]
 #![no_std]
-
+#![feature(panic_info_message)]
 use core::arch::global_asm;
 
 mod lang_items;
@@ -13,9 +13,8 @@ global_asm!(include_str!("entry.asm"));
 #[no_mangle]
 pub fn rust_main()->!{
     clear_bss();
-    loop{
-
-    }
+    println!("Hello, world!");
+    panic!("Shutdown machine!");
 }
 
 fn clear_bss() {
